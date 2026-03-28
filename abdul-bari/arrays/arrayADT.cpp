@@ -46,6 +46,15 @@ int Delete(struct Array &arr, int index){
     return 0;
 }
 
+int LinearSearch(struct Array &arr, int key){
+    for (int i = 0; i < arr.length; i++){
+        if(arr.A[i] == key){
+            return i;
+        }
+    }
+    return 0;
+}
+
 int main(){
     struct Array arr;
     int n;
@@ -64,12 +73,14 @@ int main(){
     arr.length = n;
     // Append(arr, 20);
     // Insert(arr, 1, 7);
-    int deletedElt = Delete(arr, 2);
-    cout << deletedElt << endl;
+    // int deletedElt = Delete(arr, 2);
+    // cout << deletedElt << endl;
 
     Display(arr);
     cout << endl;
     cout << "-------------------------" << endl;
+
+    cout << LinearSearch(arr, 4) << endl;
 
     return 0;
 }
