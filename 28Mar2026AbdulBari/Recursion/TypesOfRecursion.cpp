@@ -45,6 +45,20 @@ void headRecursionUsingLoop(int n) {
 
 // IF THE RECURSIVE FUNCTION HAS TO DO SOMETHING AT RETURNING TIME , IT CAN NOT BE EASILY CONVERTED IN THE FORM OF THE LOOP BUT IT CAN BE CONVERTED
 
+// -------------------------------------------------------------------------
+
+// 3. TREE RECURSION:-> IF A RECURSIVE FUNCTION IS CALLING ITSELF MORE THAN ONE TIME
+
+// TIME COMPLEXITY: O(2^n);
+// SPACE COMPLEXITY: O(n);
+void treeRecursion(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        treeRecursion(n - 1);
+        treeRecursion(n - 1);
+    }
+}
+
 int main() {
     cout << "-----------START------------" << endl;
     tailRecursion(5);
@@ -55,6 +69,7 @@ int main() {
     cout << endl;
     headRecursionUsingLoop(5);
     cout << endl;
+    treeRecursion(3);
+    cout << endl;
     cout << endl << "-----------END------------" << endl;
     return 0;
-}
