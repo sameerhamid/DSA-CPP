@@ -59,6 +59,23 @@ void treeRecursion(int n) {
     }
 }
 
+// 4. INDERECT RECURSION:-> THERE MAY MORE THAN ONE FUNCTON AND THEY ARE CALLING ONE ANOTHER IN A CIRCULAR FATION
+
+void indirectRecursionB(int n) {
+    if (n > 1) {
+        cout << n << " ";
+        indirectRecursionA(n / 2);
+    }
+}
+
+void indirectRecursionA(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        indirectRecursionB(n - 1);
+    }
+}
+
+
 int main() {
     cout << "-----------START------------" << endl;
     tailRecursion(5);
@@ -71,5 +88,8 @@ int main() {
     cout << endl;
     treeRecursion(3);
     cout << endl;
+    indirectRecurionA(3);
+    cout << endl;
     cout << endl << "-----------END------------" << endl;
     return 0;
+}
