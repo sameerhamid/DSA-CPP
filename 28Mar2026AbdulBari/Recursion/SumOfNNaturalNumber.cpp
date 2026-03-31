@@ -8,13 +8,21 @@ int SumOfNNaturalNumbers(int n) {
     return SumOfNNaturalNumbers(n - 1) + n;
 }
 
+int ItrativeSum(int n) {
+    int s = 0;
+    for (int i = 1; i <= n; i++) {
+        s = s + i;
+    }
+    return s;
+}
 
 int main() {
 
     cout << "-----------START------------" << endl;
     cout << "SumOfNNaturalNumbers -------------- " << SumOfNNaturalNumbers(6);
     cout << endl;
-
+    cout << "ItrativeSum -------------- " << ItrativeSum(6);
+    cout << endl;
     cout << endl << "-----------END------------" << endl;
     return 0;
 }
