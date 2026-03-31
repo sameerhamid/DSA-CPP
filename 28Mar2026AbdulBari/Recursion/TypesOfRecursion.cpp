@@ -61,34 +61,45 @@ void treeRecursion(int n) {
 
 // 4. INDERECT RECURSION:-> THERE MAY MORE THAN ONE FUNCTON AND THEY ARE CALLING ONE ANOTHER IN A CIRCULAR FATION
 
-void indirectRecursionB(int n) {
-    if (n > 1) {
-        cout << n << " ";
-        indirectRecursionA(n / 2);
-    }
-}
+// void indirectRecursionB(int n) {
+//     if (n > 1) {
+//         cout << n << " ";
+//         indirectRecursionA(n / 2);
+//     }
+// }
 
-void indirectRecursionA(int n) {
-    if (n > 0) {
-        cout << n << " ";
-        indirectRecursionB(n - 1);
-    }
-}
+// void indirectRecursionA(int n) {
+//     if (n > 0) {
+//         cout << n << " ";
+//         indirectRecursionB(n - 1);
+//     }
+// }
 
+
+// 4. NESTED RECURSION:-> RECURSIVE FUNCTION WILL PASS PARAMETER AS A RECURSIVE CALL
+
+int nestedRecurions(int n) {
+    if (n > 100) {
+        return n - 10;
+    }
+    return nestedRecurions(nestedRecurions(n + 11));
+}
 
 int main() {
     cout << "-----------START------------" << endl;
-    tailRecursion(5);
+    // tailRecursion(5);
+    // cout << endl;
+    // tailRecursionUsingLoop(5);
+    // cout << endl;
+    // headRecursion(5);
+    // cout << endl;
+    // headRecursionUsingLoop(5);
+    // cout << endl;
+    // treeRecursion(3);
+    // cout << endl;
+    // indirectRecurionA(3);
     cout << endl;
-    tailRecursionUsingLoop(5);
-    cout << endl;
-    headRecursion(5);
-    cout << endl;
-    headRecursionUsingLoop(5);
-    cout << endl;
-    treeRecursion(3);
-    cout << endl;
-    indirectRecurionA(3);
+    cout << "nestedRecurions--------" << nestedRecurions(95) << endl;
     cout << endl;
     cout << endl << "-----------END------------" << endl;
     return 0;
