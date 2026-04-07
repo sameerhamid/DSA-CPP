@@ -37,6 +37,7 @@ int FibonaciiNumberRecursiveWithMemozation(int n) {
         if (M[n -1] == -1) {
             M[n - 1] = FibonaciiNumberRecursiveWithMemozation(n -1);
         }
+        M[n] = M[n -2] + M[n -1];
         return M[n - 2] + M[n - 1];
     }
 }
