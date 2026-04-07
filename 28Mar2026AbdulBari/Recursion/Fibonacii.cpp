@@ -24,11 +24,33 @@ int FibonaciiNumberItrative(int n) {
     return s;
 }
 
+int M[10];
+
+int FibonaciiNumberRecursiveWithMemozation(int n) {
+    if (n <= 1) {
+        M[n] = n;
+        return n;
+    } else {
+        if (M[n - 2] == -1) {
+             M[n - 2] = FibonaciiNumberRecursiveWithMemozation(n - 2);
+        }
+        if (M[n -1] == -1) {
+            M[n - 1] = FibonaciiNumberRecursiveWithMemozation(n -1);
+        }
+        return M[n - 2] + M[n - 1];
+    }
+}
+
 int main() {
     cout << "-----------START------------" << endl;
     cout << "FibonaciiNumber -------------- " << FibonaciiNumber(8);
     cout << endl;
     cout << "FibonaciiNumberItrative -------------- " << FibonaciiNumberItrative(8);
+    cout << endl;
+    for (int i = 0; i < 10; i++) {
+        M[i] = -1;
+    }
+    cout << "FibonaciiNumberRecursiveWithMemozation -------------- " << FibonaciiNumberRecursiveWithMemozation(8);
     cout << endl;
     cout << "-----------END------------" << endl;
     return 0;
