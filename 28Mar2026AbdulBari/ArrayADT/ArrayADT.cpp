@@ -10,16 +10,42 @@ struct Array {
 };
 
 void Display(struct Array arr) {
+    if (arr.length == 0) {
+        cout << "Array is empty." << endl;
+        return;
+    }
     cout << "Elements are : ";
     for (int i = 0; i < arr.length; i++) {
         cout << arr.A[i] << " ";
     }
+    cout << endl;
 }
 
-int Append(struct Array &arr, int elt) {
+void Append(struct Array &arr, int elt) {
+    if (arr.length >= arr.size) {
+        cout << "❌ Cannot append " << elt << " → Array is full." << endl;
+        return;
+    }
     arr.A[arr.length] = elt;
     arr.length++;
-    return elt;
+    cout << "✅ Appended " << elt << " successfully." << endl;
+}
+
+void Insert(struct Array &arr, int index, int elt) {
+    if (arr.length >= arr.size) {
+        cout << "❌ Cannot insert " << elt << " → Array is full." << endl;
+        return;
+    }
+    if (index < 0 || index > arr.length) {
+        cout << "❌ Invalid index " << index << ". Valid range: 0 to " << arr.length << endl;
+        return;
+    }
+    for (int i = arr.length; i > index; i--) {
+        arr.A[i] = arr.A[i - 1];
+    }
+    arr.A[index] = elt;
+    arr.length++;
+    cout << "✅ Inserted " << elt << " at index " << index << "." << endl;
 }
 
 int main() {
@@ -34,10 +60,17 @@ int main() {
     Append(arr, 13);
     Append(arr, 14);
     Append(arr, 15);
+    Insert(arr, 2, 99);
+    Insert(arr, 2, 100);
+    Insert(arr, 2, 120);
+    Insert(arr, 2, 130);
+    Insert(arr, 2, 140);
+    Insert(arr, 2, 150);
     cout << endl;
     Display(arr);
     cout << endl;
-    cout << "--------------------- END -----------------------" << endl;
-
+    // Free memory
+    delete[] arr.A;
+    cout << "\n--------------------- END -----------------------" << endl;
     return 0;
 }
