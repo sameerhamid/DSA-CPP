@@ -16,16 +16,25 @@ void Display(struct Array arr) {
     }
 }
 
+int Append(struct Array &arr, int elt) {
+    arr.A[arr.length] = elt;
+    arr.length++;
+    return elt;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
     cin >> arr.size;
-    arr.A = new int (arr.size);
+    arr.A = new int[arr.size];
     arr.length = 0;
-    for (int i = 0; i < arr.size; i++) {
-        arr.A[i] = i + 10;
-        arr.length++;
-    }
+    Append(arr, 10);
+    Append(arr, 11);
+    Append(arr, 12);
+    Append(arr, 13);
+    Append(arr, 14);
+    Append(arr, 15);
+    cout << endl;
     Display(arr);
     cout << endl;
     cout << "--------------------- END -----------------------" << endl;
