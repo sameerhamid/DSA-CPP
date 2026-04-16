@@ -48,6 +48,19 @@ void Insert(struct Array &arr, int index, int elt) {
     cout << "✅ Inserted " << elt << " at index " << index << "." << endl;
 }
 
+void Delete(struct Array &arr, int index) {
+    if (index < 0 || index > arr.length) {
+        cout << "❌ Invalid index " << index << ". Valid range: 0 to " << arr.length << endl;
+        return;
+    }
+    int eltToDelete = arr.A[index];
+    for (int i = index; i < arr.length - 1; i++) {
+        arr.A[i] = arr.A[i+1];
+    }
+    arr.length--;
+    cout << "✅ Deleted " << eltToDelete << " at index " << index << "." << endl;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -66,9 +79,11 @@ int main() {
     Insert(arr, 2, 130);
     Insert(arr, 2, 140);
     Insert(arr, 2, 150);
+    Delete(arr, 0);
     cout << endl;
     Display(arr);
     cout << endl;
+    cout << "Length of array is: " << arr.length << endl;
     // Free memory
     delete[] arr.A;
     cout << "\n--------------------- END -----------------------" << endl;
