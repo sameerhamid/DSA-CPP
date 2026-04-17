@@ -117,6 +117,22 @@ int BinarySearch(struct Array arr, int elt) {
     return -1;
 }
 
+int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
+    if (low <= high) {
+        int mid = (low + high / 2);
+        if (arr.A[mid] == elt) {
+            cout << elt << " found at index " << mid << endl;
+            return mid;
+        } else if (elt < arr.A[mid]) {
+            return BinarySearchRecursive(arr, elt, low, mid - 1);
+        } else {
+            return BinarySearchRecursive(arr, elt, mid + 1, high);
+        }
+    }
+    cout << elt << " Not found!" << endl;;
+    return -1;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -143,6 +159,7 @@ int main() {
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
     // ImprovedLinearSearchUsingMoveToFront(arr, 100);
     BinarySearch(arr, 11);
+    BinarySearchRecursive(arr, 11, 0, arr.length - 1);
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
