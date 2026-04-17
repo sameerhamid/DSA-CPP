@@ -61,6 +61,17 @@ void Delete(struct Array &arr, int index) {
     cout << "✅ Deleted " << eltToDelete << " at index " << index << "." << endl;
 }
 
+int LinearSearch(struct Array arr, int elt) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr.A[i] == elt) {
+            cout << elt << " found at index " << i << endl;
+            return i;
+        }
+    }
+    cout << elt << " Not found!" << endl;;
+    return -1;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -82,6 +93,7 @@ int main() {
     Delete(arr, 0);
     cout << endl;
     Display(arr);
+    LinearSearch(arr, 100);
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
