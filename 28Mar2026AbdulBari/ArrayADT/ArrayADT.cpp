@@ -86,6 +86,20 @@ int ImprovedLinearSearchUsingTranspostiton(struct Array &arr, int elt) {
     return -1;
 }
 
+int ImprovedLinearSearchUsingMoveToFront(struct Array &arr, int elt) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr.A[i] == elt) {
+            int temp = arr.A[0];
+            arr.A[0] = arr.A[i];
+            arr.A[i] = temp;
+            cout << elt << " found at index " << 0 << endl;
+            return 0;
+        }
+    }
+    cout << elt << " Not found!" << endl;;
+    return -1;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -110,6 +124,7 @@ int main() {
     LinearSearch(arr, 100);
     ImprovedLinearSearchUsingTranspostiton(arr, 100);
     ImprovedLinearSearchUsingTranspostiton(arr, 100);
+    ImprovedLinearSearchUsingMoveToFront(arr, 100);
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
