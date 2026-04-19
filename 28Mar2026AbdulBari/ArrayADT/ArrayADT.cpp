@@ -123,6 +123,12 @@ int Get(struct Array arr, int index) {
     }
 }
 
+void Set(struct Arr &arr, int index, int elt) {
+    if (index < arr.length || index > 0) {
+        arr.A[index] = elt;
+    }
+}
+
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     if (low <= high) {
         int mid = (low + high / 2);
