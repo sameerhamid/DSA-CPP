@@ -119,14 +119,28 @@ int BinarySearch(struct Array arr, int elt) {
 
 int Get(struct Array arr, int index) {
     if (index < arr.length || index > 0) {
-        return arr.A[i];
+        return arr.A[index];
     }
+    return -1;
 }
 
-void Set(struct Arr &arr, int index, int elt) {
+void Set(struct Array &arr, int index, int elt) {
     if (index < arr.length || index > 0) {
         arr.A[index] = elt;
     }
+}
+
+int Max(struct Array arr) {
+    if (arr.length > 0) {
+        int max = arr.A[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr.A[i] > max) {
+                max = arr.A[i];
+            }
+        }
+        return max;
+    }
+    return -1;
 }
 
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
@@ -170,8 +184,9 @@ int main() {
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
     // ImprovedLinearSearchUsingMoveToFront(arr, 100);
-    BinarySearch(arr, 11);
-    BinarySearchRecursive(arr, 11, 0, arr.length - 1);
+    // BinarySearch(arr, 11);
+    // BinarySearchRecursive(arr, 11, 0, arr.length - 1);
+    cout << "Max element : " << Max(arr) << endl;
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
