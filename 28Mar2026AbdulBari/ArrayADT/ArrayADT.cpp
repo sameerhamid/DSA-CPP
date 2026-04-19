@@ -117,6 +117,12 @@ int BinarySearch(struct Array arr, int elt) {
     return -1;
 }
 
+int Get(struct Array arr, int index) {
+    if (index < arr.length || index > 0) {
+        return arr.A[i];
+    }
+}
+
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     if (low <= high) {
         int mid = (low + high / 2);
