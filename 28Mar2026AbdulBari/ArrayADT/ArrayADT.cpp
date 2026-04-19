@@ -143,6 +143,19 @@ int Max(struct Array arr) {
     return -1;
 }
 
+int Min(struct Array arr) {
+    if (arr.length > 0) {
+        int min = arr.A[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr.A[i] < min) {
+                min = arr.A[i];
+            }
+        }
+        return min;
+    }
+    return -1;
+}
+
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     if (low <= high) {
         int mid = (low + high / 2);
@@ -187,6 +200,7 @@ int main() {
     // BinarySearch(arr, 11);
     // BinarySearchRecursive(arr, 11, 0, arr.length - 1);
     cout << "Max element : " << Max(arr) << endl;
+    cout << "Min element : " << Min(arr) << endl;
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
