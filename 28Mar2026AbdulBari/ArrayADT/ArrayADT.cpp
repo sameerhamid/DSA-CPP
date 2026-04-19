@@ -164,6 +164,13 @@ int SumOfAllEltsItrative(struct Array arr) {
     return sum;
 }
 
+int SumOfAllEltsRecursive(struct Array arr, int n) {
+    if (n < 0) {
+        return 0;
+    }
+    return SumOfAllEltsRecursive(arr, n - 1) + arr.A[n];
+}
+
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     if (low <= high) {
         int mid = (low + high / 2);
@@ -210,6 +217,7 @@ int main() {
     // cout << "Max element : " << Max(arr) << endl;
     // cout << "Min element : " << Min(arr) << endl;
     cout << "Sum of all element : " << SumOfAllEltsItrative(arr) << endl;
+    cout << "Sum of all element : " << SumOfAllEltsRecursive(arr, arr.length - 1) << endl;
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
