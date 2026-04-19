@@ -171,6 +171,14 @@ int SumOfAllEltsRecursive(struct Array arr, int n) {
     return SumOfAllEltsRecursive(arr, n - 1) + arr.A[n];
 }
 
+int Average(struct Array arr) {
+    int sum = 0;
+    for (int i = 0; i < arr.length; i++) {
+        sum += arr.A[i];
+    }
+    return sum / arr.length;
+}
+
 int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     if (low <= high) {
         int mid = (low + high / 2);
@@ -218,6 +226,7 @@ int main() {
     // cout << "Min element : " << Min(arr) << endl;
     cout << "Sum of all element : " << SumOfAllEltsItrative(arr) << endl;
     cout << "Sum of all element : " << SumOfAllEltsRecursive(arr, arr.length - 1) << endl;
+    cout << "Average of all element : " << Average(arr) << endl;
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
