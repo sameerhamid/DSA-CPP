@@ -195,6 +195,17 @@ int BinarySearchRecursive(struct Array arr, int elt, int low, int high) {
     return -1;
 }
 
+void ReverseUsingAuxilaryArray(struct Array &arr) {
+    int temp[arr.length];
+
+    for (int i = 0; i < arr.length; i++) {
+        temp[i] = arr.A[arr.length - i - 1];
+    }
+    for (int i = 0; i < arr.length; i++) {
+        arr.A[i] = temp[i];
+    }
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -215,7 +226,8 @@ int main() {
     // Insert(arr, 2, 150);
     // Delete(arr, 0);
     // cout << endl;
-    // Display(arr);
+    ReverseUsingAuxilaryArray(arr);
+    Display(arr);
     // LinearSearch(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
@@ -224,9 +236,9 @@ int main() {
     // BinarySearchRecursive(arr, 11, 0, arr.length - 1);
     // cout << "Max element : " << Max(arr) << endl;
     // cout << "Min element : " << Min(arr) << endl;
-    cout << "Sum of all element : " << SumOfAllEltsItrative(arr) << endl;
-    cout << "Sum of all element : " << SumOfAllEltsRecursive(arr, arr.length - 1) << endl;
-    cout << "Average of all element : " << Average(arr) << endl;
+    // cout << "Sum of all element : " << SumOfAllEltsItrative(arr) << endl;
+    // cout << "Sum of all element : " << SumOfAllEltsRecursive(arr, arr.length - 1) << endl;
+    // cout << "Average of all element : " << Average(arr) << endl;
     cout << endl;
     cout << "Length of array is: " << arr.length << endl;
     // Free memory
