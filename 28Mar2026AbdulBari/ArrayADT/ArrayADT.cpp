@@ -206,6 +206,18 @@ void ReverseUsingAuxilaryArray(struct Array &arr) {
     }
 }
 
+void Reverse(struct Array &arr) {
+    int i = 0;
+    int j = arr.length - 1;
+    while (i < j) {
+        int temp = arr.A[i];
+        arr.A[i] = arr.A[j];
+        arr.A[j] = temp;
+        i++;
+        j--;
+    }
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -226,7 +238,8 @@ int main() {
     // Insert(arr, 2, 150);
     // Delete(arr, 0);
     // cout << endl;
-    ReverseUsingAuxilaryArray(arr);
+    // ReverseUsingAuxilaryArray(arr);
+    Reverse(arr);
     Display(arr);
     // LinearSearch(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
