@@ -218,6 +218,20 @@ void Reverse(struct Array &arr) {
     }
 }
 
+void InsertInAnSortedArray(struct Array &arr, int elt) {
+    if (arr.length >= arr.size) {
+        cout << "❌ Cannot insert " << elt << " → Array is full." << endl;
+        return;
+    }
+    int i = arr.length - 1;
+    while (arr.A[i] > elt) {
+        arr.A[i + 1] = arr.A[i];
+        i--;
+    }
+    arr.A[i+1] = elt;
+    cout << "✅ Inserted " << elt << " at index " << i+1 << "." << endl;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -226,10 +240,12 @@ int main() {
     arr.length = 0;
     Append(arr, 10);
     Append(arr, 11);
-    Append(arr, 12);
+    // Append(arr, 12);
     Append(arr, 13);
     Append(arr, 14);
     Append(arr, 15);
+    InsertInAnSortedArray(arr, 12);
+
     // Insert(arr, 2, 99);
     // Insert(arr, 2, 100);
     // Insert(arr, 2, 120);
@@ -239,7 +255,7 @@ int main() {
     // Delete(arr, 0);
     // cout << endl;
     // ReverseUsingAuxilaryArray(arr);
-    Reverse(arr);
+    // Reverse(arr);
     Display(arr);
     // LinearSearch(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
