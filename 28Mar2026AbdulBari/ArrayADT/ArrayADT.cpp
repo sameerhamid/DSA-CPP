@@ -229,6 +229,7 @@ void InsertInAnSortedArray(struct Array &arr, int elt) {
         i--;
     }
     arr.A[i+1] = elt;
+    arr.length++;
     cout << "✅ Inserted " << elt << " at index " << i+1 << "." << endl;
 }
 
