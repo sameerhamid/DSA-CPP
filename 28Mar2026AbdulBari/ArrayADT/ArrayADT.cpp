@@ -232,6 +232,15 @@ void InsertInAnSortedArray(struct Array &arr, int elt) {
     cout << "✅ Inserted " << elt << " at index " << i+1 << "." << endl;
 }
 
+bool IsSorted(struct Array arr) {
+    for (int i = 0; i < arr.length - 1; i++) {
+        if (arr.A[i] > arr.A[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     struct Array arr;
     cout << "Enter the size of an array: ";
@@ -257,6 +266,7 @@ int main() {
     // ReverseUsingAuxilaryArray(arr);
     // Reverse(arr);
     Display(arr);
+    cout << "IsSorted: " << IsSorted(arr) << endl;
     // LinearSearch(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
     // ImprovedLinearSearchUsingTranspostiton(arr, 100);
