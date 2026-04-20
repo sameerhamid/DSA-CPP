@@ -224,7 +224,7 @@ void InsertInAnSortedArray(struct Array &arr, int elt) {
         return;
     }
     int i = arr.length - 1;
-    while (arr.A[i] > elt) {
+    while (i >= 0 && arr.A[i] > elt) {
         arr.A[i + 1] = arr.A[i];
         i--;
     }
