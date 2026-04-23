@@ -68,6 +68,31 @@ struct Array* Intersection(struct Array &arr1, struct Array &arr2) {
     return arr3;
 }
 
+// Difference of first array
+struct Array* Difference(struct Array &arr1, struct Array &arr2) {
+    int i = 0, j = 0, k = 0;
+
+    struct Array *arr3 = new Array;
+    arr3->size = arr1.length + arr2.length;
+    arr3->length = 0;
+    arr3->A = new int[arr3->size];
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1.A[i] < arr2.A[j]) {
+            arr3->A[k++] = arr1.A[i++];
+        } else if (arr1.A[i] > arr2.A[j]) {
+            j++;
+        } else {
+            i++;
+            j++;
+        }
+    }
+    for (; i < arr1.length; i++) {
+        arr3->A[k++] = arr1.A[i++];
+    }
+    arr3->length = k;
+    return arr3;
+}
+
 int main() {
     struct Array arr1, arr2;
     arr1.size = 10;
@@ -85,7 +110,8 @@ int main() {
     Display(arr2);
 
     // struct Array *arr3 = Union(arr1, arr2);
-    struct Array *arr3 = Intersection(arr1, arr2);
+    // struct Array *arr3 = Intersection(arr1, arr2);
+    struct Array *arr3 = Difference(arr1, arr2);
 
     cout << "Merged Array: ";
     Display(*arr3);
