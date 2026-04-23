@@ -101,7 +101,7 @@ int main() {
 
     arr2.size = 10;
     arr2.length = 5;
-    arr2.A = new int[arr2.size]{3, 6, 7, 15, 25};
+    arr2.A = new int[arr2.size]{3, 6, 7, 15, 20};
 
     cout << "Array 1: ";
     Display(arr1);
