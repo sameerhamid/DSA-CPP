@@ -25,6 +25,24 @@ void findingDuplicateElts(int arr[], int n)
     }
 }
 
+void findingDuplicateEltsOptimalAproach(int arr[], int n, int largestElt)
+{
+    vector<int> countArr(largestElt + 1, 0);
+
+    for (int i = 0; i < n; i++)
+    {
+        countArr[arr[i]]++;
+    }
+
+    for (int i = 0; i <= largestElt; i++)
+    {
+        if (countArr[i] > 1)
+        {
+            cout << "Element " << i << " occurs " << countArr[i] << " times\n";
+        }
+    }
+}
+
 int main()
 {
     cout << "----------------START----------------------" << endl;
@@ -32,7 +50,9 @@ int main()
     int arr[] = {1, 2, 3, 2, 4, 3, 5, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    findingDuplicateElts(arr, n);
+    // findingDuplicateElts(arr, n);
+    cout << endl;
+    findingDuplicateEltsOptimalAproach(arr, n, 5);
 
     cout << "---------------- END ----------------------" << endl;
     return 0;
