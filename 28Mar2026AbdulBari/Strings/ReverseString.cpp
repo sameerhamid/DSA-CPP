@@ -1,10 +1,5 @@
 #include<iostream>
 using namespace std;
-#include <iostream>
-using namespace std;
-
-#include <iostream>
-using namespace std;
 
 void Reverse(char str[]) {
     int i, j;
