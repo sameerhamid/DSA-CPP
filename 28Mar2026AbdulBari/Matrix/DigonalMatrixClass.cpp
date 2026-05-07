@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-class Matrix {
+class DigonalMatrix {
     int n;
     int *A;
-    Matrix() {
+    DigonalMatrix() {
         this->n = 2;
         A = new int[n];
     }
     public:
-    Matrix(int n) {
+    DigonalMatrix(int n) {
         this->n = n;
         A = new int[n];
     }
-    ~Matrix() {
+    ~DigonalMatrix() {
         delete []A;
     }
     public:
@@ -22,20 +22,20 @@ class Matrix {
     void Display();
 };
 
-void Matrix::Set(int i, int j, int x) {
+void DigonalMatrix::Set(int i, int j, int x) {
     if (i == j) {
         A[i-1] = x;
     }
 }
 
-int Matrix::Get(int i, int j) {
+int DigonalMatrix::Get(int i, int j) {
     if (i == j) {
         return A[i-1];
     }
     return 0;
 }
 
-void Matrix::Display() {
+void DigonalMatrix::Display() {
     for(int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i == j) {
@@ -50,14 +50,14 @@ void Matrix::Display() {
 
 int main()
 {
-    Matrix DigonalMatrix(4);
-    DigonalMatrix.Set(1, 1, 10);
-    DigonalMatrix.Set(2, 2, 20);
-    DigonalMatrix.Set(3, 3, 30);
-    DigonalMatrix.Set(4, 4, 40);
-    cout << DigonalMatrix.Get(2, 2) << endl;
-    cout << DigonalMatrix.Get(1, 2) << endl;
+    DigonalMatrix D(4);
+    D.Set(1, 1, 10);
+    D.Set(2, 2, 20);
+    D.Set(3, 3, 30);
+    D.Set(4, 4, 40);
+    cout << D.Get(2, 2) << endl;
+    cout << D.Get(1, 2) << endl;
     cout << "---------------------------" << endl;
-    DigonalMatrix.Display();
+    D.Display();
     return 0;
 }
